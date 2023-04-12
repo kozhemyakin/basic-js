@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function transform(arr) {
   const emptyArr = [...arr];
-
+  console.debug(emptyArr)
   if (!Array.isArray(arr)) {
     // throw new Error("'\'arr\' parameter must be an instance of the Array!'")
     return false
@@ -23,30 +23,38 @@ function transform(arr) {
 
     return []
   } else {
-    emptyArr.forEach((el, index) => {
-      if (el === '--double-next') {
-        emptyArr[index] = emptyArr[index + 1];
+    emptyArr.forEach((el) => {
+      if (typeof el !== 'number') {
+        delete el
       }
-      if (el === '--double-prev' && index == 0) {
-        delete emptyArr[0];
-      }
-      if (el === '--double-prev' && index != 0) {
-        emptyArr[index] = emptyArr[index - 1];
-      }
-      if (el === '--discard-next') {
-        delete emptyArr[index + 1];
-        delete emptyArr[index];
-      }
-      if (el === '--discard-prev' && index == 0) {
-        delete emptyArr[0];
-      }
-      if (el === '--discard-prev' && index != 0) {
-
-        delete emptyArr[index - 1];
-        delete emptyArr[index - 1];
-      }
-
     })
+    // console.debug('emptyArr', emptyArr)
+    delete emptyArr[0]
+    delete emptyArr[1]
+    
+    // emptyArr.forEach((el, index) => {
+    //   if (el === '--double-next') {
+    //     emptyArr[index] = emptyArr[index + 1];
+    //   }
+    //   if (el === '--double-prev' && index == 0) {
+    //     delete emptyArr[0];
+    //   }
+    //   if (el === '--double-prev' && index != 0) {
+    //     emptyArr[index] = emptyArr[index - 1];
+    //   }
+    //   if (el === '--discard-next') {
+    //     delete emptyArr[index + 1];
+    //     delete emptyArr[index];
+    //   }
+    //   if (el === '--discard-prev' && index == 0) {
+    //     delete emptyArr[0];
+    //   }
+    //   if (el === '--discard-prev' && index != 0) {
+
+    //     delete emptyArr[index - 1];
+    //     delete emptyArr[index - 1];
+    //   }
+    // })
 
     // console.debug(emptyArr)
     // // const doubleNext = emptyArr.findIndex(el => el === '--double-next');
