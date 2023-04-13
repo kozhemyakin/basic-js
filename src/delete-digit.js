@@ -21,7 +21,7 @@ function deleteDigit(n) {
     res.push(+t);
   }
 
-  return Math.max(...res)
+  return Math.max(...res);
 }
 
 module.exports = {
