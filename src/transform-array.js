@@ -17,7 +17,7 @@ function transform(arr) {
   let res = [];
 
   if(!Array.isArray(arr)){
-    throw new Error(`'arr' parameter must be an instance of the Array!`);
+    throw new Error("'arr' parameter must be an instance of the Array!");
   }
 
   for (let i = 0; i < arr.length; i++) {
@@ -43,7 +43,7 @@ function transform(arr) {
       res.push(arr[i]);
     }
   }
-  
+
   return res;
 }
 
